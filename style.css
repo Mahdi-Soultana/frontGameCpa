@@ -80,3 +80,14 @@ h1 {
 .card:hover:before {
   opacity: 1;
 }
+.congratulation {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.4rem;
+  letter-spacing: 1.2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  color: tan;
+}

@@ -1,6 +1,7 @@
 let seconds = 3;
 const cards = document.querySelectorAll(".card");
 let Globlelink = "";
+let isPublick = false;
 async function getData(url) {
   const Url = "https://monitizegame.herokuapp.com/cpa_monitize/";
   const data = await fetch(
@@ -26,6 +27,7 @@ function checkDataAds() {
 function LogicAds(data) {
   seconds = data.timePushAds;
   Globlelink = data.link;
+  isPublick = data.isPublic;
   //user not clicked and by clicking is disabled
   if (!data.byClicking) {
     console.log("remaining time Automaticly " + seconds);
@@ -46,7 +48,9 @@ function LogicAds(data) {
   }
 }
 function navigate(link) {
-  window.location.href = link;
+  if (isPublick) {
+    window.location.href = link;
+  }
 }
 cards.forEach(card => {
   card.addEventListener("click", HandelClickCard);

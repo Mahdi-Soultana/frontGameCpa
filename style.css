@@ -19,7 +19,7 @@ body {
   padding: 2vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(300px, 400px));
+  grid-template-rows: repeat(auto-fit, minmax(300px, 500px));
   gap: 2rem;
   cursor: pointer;
 }
@@ -41,32 +41,30 @@ img {
 }
 h1 {
   font-weight: 300;
-  margin: 2rem 0;
+  margin-top: 2rem;
   font-size: 5rem;
 }
 .card:hover {
   box-shadow: black 3px 4px 17px;
   transform: translateY(-3px) scale(1.01);
 }
-.card:hover::after {
-  transform: translateY(100%);
-}
+
 .card::after {
   transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1);
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
-  top: -100%;
+  top: 0%;
   left: 0;
-  background-color: rgba(206, 206, 206, 0.555);
+  background-color: rgba(14, 14, 14, 0.555);
 }
-.card::before {
+/* .card::before {
   position: absolute;
   content: "Play Now";
   font-size: 4.5rem;
   letter-spacing: -1px;
-  /* font-style: italic; */
+    font-style: italic;  
   width: 100%;
   top: 40%;
   left: 0%;
@@ -76,13 +74,12 @@ h1 {
   opacity: 0;
   transition: 0.3s 0.3s all ease-in;
   pointer-events: none;
-}
-.card:hover:before {
-  opacity: 1;
-}
+} 
+*/
+
 .congratulation {
   position: absolute;
-  bottom: 2rem;
+  bottom: 0.5rem;
   right: 2rem;
   font-size: 1.4rem;
   letter-spacing: 1.2px;

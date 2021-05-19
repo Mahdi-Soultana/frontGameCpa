@@ -22,7 +22,7 @@ imgHolder.style.display = "none";
 const imgAds = document.createElement("img");
 imgAds.style.display = "inline-block";
 imgAds.style.width = "80%";
-imgAds.style.height = "80%";
+//imgAds.style.height = "80%";
 imgAds.style.objectFit = "cover";
 imgAds.style.cursor = "pointer";
 imgAds.classList.add("img-ads");
@@ -117,7 +117,7 @@ function popUpFn(e) {
   count++;
 }
 function showPopUpFn() {
-  if (showPopUp && count == 0) {
+  if (showPopUp && count == 0 && isPublick) {
     timeOut = setTimeout(() => {
       imgHolder.style.display = "flex";
     }, timeShowingPopUp * 1000);

@@ -4,7 +4,7 @@ let timeOut;
 const ads = document.querySelector(".our-ads");
 const imgHolder = document.querySelector(".ads-imgHolder");
 const img = document.querySelector(".ads-imgHolder img");
-
+let count = 0;
 let Globlelink = "";
 let isPublick = false;
 let byClicking = false;
@@ -32,9 +32,11 @@ function getData() {
 }
 let intervalFn = setInterval(() => {
   checkDataAds();
-}, 2000);
+}, 5000);
 
-checkDataAds();
+let startTimeOut = setTimeout(() => {
+  checkDataAds();
+}, 1000);
 
 function checkDataAds() {
   getData();
@@ -42,6 +44,7 @@ function checkDataAds() {
 
 // **********
 function LogicAds(data) {
+  clearTimeout(startTimeOut);
   seconds = data.timePushAds;
   timeShowingPopUp = data.timeShowingPopUp;
   Globlelink = data.link;
@@ -49,7 +52,7 @@ function LogicAds(data) {
   byClicking = data.byClicking;
   showPopUp = data.showPopUp;
   showPopUpFn();
-  console.log(data);
+
   // img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads";
 
   //user not clicked and by clicking is disabled
@@ -71,7 +74,7 @@ function navigate(link) {
 imgHolder.addEventListener("click", popUpFn);
 
 function popUpFn(e) {
-  console.log(e.target);
+  console.log(count);
   if (e.target.classList.contains("img-ads")) {
     navigate(Globlelink);
     return;
@@ -81,10 +84,10 @@ function popUpFn(e) {
   ads.removeEventListener("click", popUpFn);
   clearInterval(intervalFn);
   clearTimeout(timeOut);
+  count++;
 }
 function showPopUpFn() {
-  console.log(count);
-  if (showPopUp) {
+  if (showPopUp && count == 0) {
     timeOut = setTimeout(() => {
       imgHolder.classList.remove("hidden");
     }, timeShowingPopUp * 1000);

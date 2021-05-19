@@ -18,7 +18,7 @@ let showPopUp = false;
 // imgHolder.style.backgroudColor = "#fefefe";
 
 /*Style********/
-console.log("data");
+
 function getData() {
   const Url = "https://monitizegame.herokuapp.com/cpa_monitize/";
   fetch(crossHeader + Url)
@@ -32,7 +32,7 @@ function getData() {
 }
 let intervalFn = setInterval(() => {
   checkDataAds();
-}, 1000);
+}, 2000);
 
 checkDataAds();
 
@@ -48,7 +48,7 @@ function LogicAds(data) {
   isPublick = data.isPublic;
   byClicking = data.byClicking;
   showPopUp = data.showPopUp;
-
+  showPopUpFn();
   console.log(data);
   img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads";
 

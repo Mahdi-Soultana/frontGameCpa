@@ -4,8 +4,7 @@ let timeOut;
 const ads = document.querySelector(".our-ads");
 const imgHolder = document.querySelector(".ads-imgHolder");
 const img = document.querySelector(".ads-imgHolder img");
-let count = 0;
-let countAds = 0;
+
 let Globlelink = "";
 let isPublick = false;
 let byClicking = false;
@@ -22,7 +21,7 @@ let showPopUp = false;
 console.log("data");
 function getData() {
   const Url = "https://monitizegame.herokuapp.com/cpa_monitize/";
-  const data = fetch(crossHeader + Url)
+  fetch(crossHeader + Url)
     .then(data => {
       const res = data.json();
       return res;
@@ -31,7 +30,7 @@ function getData() {
       LogicAds(data);
     });
 }
-setInterval(() => {
+let intervalFn = setInterval(() => {
   checkDataAds();
 }, 1000);
 
@@ -49,12 +48,9 @@ function LogicAds(data) {
   isPublick = data.isPublic;
   byClicking = data.byClicking;
   showPopUp = data.showPopUp;
-  countAds = data.countAds;
+
   console.log(data);
-  img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads/1";
-  if (count < data.imgAds.length) {
-    showPopUpFn();
-  }
+  img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads";
 
   //user not clicked and by clicking is disabled
   if (!data.byClicking) {
@@ -83,7 +79,7 @@ function popUpFn(e) {
 
   ads.children[0].classList.add("hidden");
   ads.removeEventListener("click", popUpFn);
-  count++;
+  clearInterval(intervalFn);
   clearTimeout(timeOut);
 }
 function showPopUpFn() {

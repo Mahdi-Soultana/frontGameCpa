@@ -50,7 +50,7 @@ function LogicAds(data) {
   showPopUp = data.showPopUp;
   showPopUpFn();
   console.log(data);
-  img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads";
+  // img.src = "https://monitizegame.herokuapp.com/cpa_monitize/img_ads";
 
   //user not clicked and by clicking is disabled
   if (!data.byClicking) {

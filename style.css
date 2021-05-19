@@ -16,11 +16,10 @@ body {
   text-shadow: rgb(19, 19, 19) 1px 1px 2px;
 }
 .game {
-  padding: 2vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(300px, 500px));
-  gap: 2rem;
+  grid-template-rows: repeat(auto-fit, minmax(300px, 100vh));
+
   cursor: pointer;
 }
 .card {
